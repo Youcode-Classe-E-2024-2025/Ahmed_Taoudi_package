@@ -1,0 +1,87 @@
+#############################################################################################  
+--------- Cahier des Charges pour l'Application de Gestion des Packages JavaScript ----------
+#############################################################################################
+
+1. Introduction
+
+L'application de gestion des packages JavaScript est une plateforme permettant aux utilisateurs de rechercher, installer, et gérer les packages JavaScript. L'application doit également permettre aux administrateurs de gérer les packages, versions et auteurs, notamment en ajoutant, modifiant ou supprimant des packages.
+
+================================
+
+2. Objectifs du Système
+
+L'objectif principal du système est de faciliter la gestion et l'installation des packages JavaScript tout en permettant une interaction fluide entre les utilisateurs et les administrateurs pour maintenir la base de données des packages, versions et auteurs à jour.
+
+================================
+
+3.Modèle de Données (Entités et Relations)
+3.1. Entités et Attributs
+
+    Package
+        id (PK) : Identifiant unique du package.
+        name : Nom du package.
+        description : Description détaillée du package.
+        repository_url : URL du dépôt GitHub ou autre.
+        
+
+    Version
+        id (PK) : Identifiant unique de la version.
+        package_id (FK) : Identifiant du package auquel la version appartient.
+        version : Numéro de version du package (ex. 1.0.0, 2.0.0).
+        release_date : Date de publication de la version.
+        changelog : Liste des changements ou améliorations dans cette version.
+
+    Author
+        id (PK) : Identifiant unique de l’auteur.
+        name : Nom de l'auteur.
+        email : Adresse email de l’auteur.
+        biograph : Biographie ou description courte de l'auteur.
+
+3.2. Relations entre les Entités
+
+ Package - Author : Un package peut avoir plusieurs auteurs. Cela représente une relation many-to-many entre Package et Author.
+
+    Relation : Un package peut être écrit par plusieurs auteurs, et un auteur peut contribuer à plusieurs packages.
+
+            Table de jointure : package_author
+                package_id (FK)
+                author_id (FK)
+
+ Package - Version : Un package peut avoir plusieurs versions. La relation est one-to-many, chaque package ayant plusieurs versions.
+
+================================
+
+4. Fonctionnalités du Système
+4.1. Gestion des Packages
+
+    Recherche de packages :
+        L'utilisateur peut rechercher un package en utilisant des mots-clés ou des filtres comme le nom, la description, ou la catégorie.
+
+    Consulter les détails d’un package :
+        L’utilisateur peut voir les informations détaillées d'un package, y compris son nom, sa description, ses versions disponibles, et les auteurs associés.
+
+    Ajouter un package (Administrateur) :
+        L'administrateur peut ajouter un nouveau package en remplissant les informations nécessaires : nom, description, URL du dépôt, etc.
+
+    Supprimer un package (Administrateur) :
+        L'administrateur peut supprimer un package du système, ce qui efface toutes ses informations et versions associées.
+
+4.2. Gestion des Versions
+
+    Voir les versions d’un package :
+        L'utilisateur peut consulter les différentes versions d’un package, y compris les détails sur les changements apportés dans chaque version.
+
+    Ajouter une version à un package (Administrateur) :
+        L'administrateur peut ajouter une nouvelle version à un package existant, en renseignant les informations relatives à la version (numéro de version, date de sortie, changelog).
+
+    Supprimer une version (Administrateur) :
+        L'administrateur peut supprimer une version d’un package si nécessaire.
+
+4.3. Gestion des Auteurs
+
+    Ajouter un auteur à un package (Administrateur) :
+        L'administrateur peut associer un ou plusieurs auteurs à un package, afin de spécifier les contributeurs au développement du package.
+
+    Supprimer un auteur d'un package (Administrateur) :
+        L'administrateur peut dissocier un auteur d'un package.
+
