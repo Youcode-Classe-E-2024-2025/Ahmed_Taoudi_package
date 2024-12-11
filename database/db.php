@@ -4,9 +4,20 @@ require('config.php');
 
 $dsn ="mysql:host=$host;port=$port;user=$user;password=$password;dbname=$dbname";
 // dd($dsn);
-$pdo = new PDO($dsn);
-$query= "select * from Version ";
+
+function fetchAll($query){
+    global $dsn;
+    $pdo = new PDO($dsn);
 $statement = $pdo->prepare($query);
 $statement->execute();
-$versions = $statement->fetchAll();
-// dd($versions);
+return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function fetch($query){
+    global $dsn;
+    $pdo = new PDO($dsn);
+$statement = $pdo->prepare($query);
+$statement->execute();
+return $statement->fetch(PDO::FETCH_ASSOC);
+}
+
