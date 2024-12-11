@@ -7,3 +7,11 @@ function dd($element){
     die();
 
 }
+
+function echoo($element){
+    echo "<pre>";
+    echo $element ;
+    echo "</pre>";
+    die();
+
+}

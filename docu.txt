@@ -1,0 +1,32 @@
+1. Prérequis
+
+    Nginx : Serveur web.
+    PHP : Pour générer les pages dynamiques.
+    MySQL : Base de données pour stocker les données.
+
+2. Installation
+Sur Ubuntu/Debian :
+
+sudo apt update
+sudo apt install nginx php-fpm php-mysql mysql-server
+(ou utiliser brew )(brew install nginx mysql)
+sur windos
+
+3. Configuration de PHP et Nginx
+
+   
+
+    Configurer Nginx :
+        Modifie /etc/nginx/sites-available/default (ou /etc/nginx/nginx.conf).
+        Ajoute le bloc PHP suivant :
+
+location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php8.x-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
+
+Redémarre les services :
+
+    sudo systemctl restart nginx php8.x-fpm
