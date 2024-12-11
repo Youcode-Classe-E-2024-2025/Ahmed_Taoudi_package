@@ -1,6 +1,19 @@
 <?php
 require('assets/helper/fonctions.php');
 require('database/db.php');
-$packages =[3,4,5];
 
-require('./views/index.view.php');
+$uri= parse_url($_SERVER['REQUEST_URI'])['path'];
+
+// dd($uri);
+
+$routes = [
+    '/'=>'controllers/index.php',
+    '/packages'=>'controllers/packages.php',
+    '/package'=>'controllers/package.php'
+];
+
+if(array_key_exists($uri,$routes)){
+    require $routes[$uri];
+}else{
+    require 'views/404.php';
+};
