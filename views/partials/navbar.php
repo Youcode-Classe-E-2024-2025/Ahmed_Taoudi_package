@@ -8,7 +8,7 @@
         </div>
         <div class="flex gap-12">
             <a class="font-bold hover:scale-105 transition-all text-indigo-700  hover:text-indigo-900" href="/">Home</a>
-            <a class="font-bold hover:scale-105 transition-all text-indigo-700  hover:text-indigo-900" href="/packages.php">Packages</a>
+            <a class="font-bold hover:scale-105 transition-all text-indigo-700  hover:text-indigo-900" href="/packages">Packages</a>
         </div>
     </nav>
 </header>

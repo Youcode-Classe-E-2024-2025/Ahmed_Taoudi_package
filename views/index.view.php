@@ -14,16 +14,16 @@
         <?php require('./views/partials/navbar.php') ?>
 
         <main class="grid grid-cols-12 h-screen ">
-            <aside class="col-start-1 col-end-4 bg-indigo-900 text-blue-950">
-                <div class="py-4 px-6 flex  flex-col gap-4">
-                    <a class=" px-6 py-1 bg-blue-50 rounded-lg hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=auteur">auteurs</a>
-                    <a class=" px-6 py-1 bg-blue-50 rounded-lg hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=packages">packages</a>
-                    <a class=" px-6 py-1 bg-blue-50 rounded-lg hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=auteur">packages</a>
+            <aside class="col-start-1 col-end-3 bg-indigo-900 text-blue-950">
+                <div class="p-4 flex  flex-col gap-4">
+                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=auteur">auteurs</a>
+                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=packages">packages</a>
+                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php">...</a>
                 </div>
             </aside>
-            <div class="col-start-4 -col-end-1">
+            <div class="col-start-3 -col-end-1">
                 <!-- statistique -->
-                <div id="statistique" class="flex justify-around p-10">
+                <section id="statistique" class="flex justify-around p-10">
                     <div class="bg-blue-50 w-1/4 rounded-xl text-center p-4">
                         <h3> nombre jjj</h3>
                         <span>90</span>
@@ -37,11 +37,21 @@
                         <span>90</span>
                     </div>
 
-                </div>
+                </section>
                 <!-- packages -->
-                 <div id="packages">
+                 <section id="packages">
+                    <h2 class="text-blue-900  py-10 px-4 font-semibold">les packages </h2>
+                    <div class="grid grid-cols-3  gap-4 mx-4">
+                       <?php foreach($packages as $package):?>
 
-                 </div>
+                       <a href="/package?id=<?=$package['id'] ?>" class="bg-white px-6 py-4 rounded ">
+                          
+                            <h3><?= $package['name'] ?></h3>
+                       </a>
+                        <?php endforeach;?>
+                        
+                    </div>
+                 </section>
             </div>
 
         </main>
