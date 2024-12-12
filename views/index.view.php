@@ -16,7 +16,7 @@
         <main class="grid grid-cols-12 h-screen ">
             <aside class="col-start-1 col-end-3 bg-indigo-900 text-blue-950">
                 <div class="p-4 flex  flex-col gap-4">
-                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=auteur">auteurs</a>
+                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages?type=auteur">auteurs</a>
                     <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=packages">packages</a>
                     <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php">...</a>
                 </div>
@@ -25,17 +25,14 @@
                 <!-- statistique -->
                 <section id="statistique" class="flex justify-around p-10">
                     <div class="bg-blue-50 w-1/4 rounded-xl text-center p-4">
-                        <h3> nombre jjj</h3>
-                        <span>90</span>
+                        <h3> nombre des Authors</h3>
+                        <span><?= $Author_count?></span>
                     </div>
                     <div class="bg-blue-50 w-1/4 rounded-xl text-center p-4">
-                        <h3> nombre jjj</h3>
-                        <span>90</span>
+                        <h3> nombre des packages</h3>
+                        <span><?= $Package_count ?></span>
                     </div>
-                    <div class="bg-blue-50 w-1/4 rounded-xl text-center p-4">
-                        <h3> nombre jjj</h3>
-                        <span>90</span>
-                    </div>
+                    
 
                 </section>
                 <!-- packages -->

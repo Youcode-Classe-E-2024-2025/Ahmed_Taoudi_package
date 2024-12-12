@@ -24,7 +24,7 @@
             </h2>
             <div class="flex flex-col justify-center items-center  gap-4 my-5">
             <?php foreach($versions as $version):?>
-                <div class= "w-1/3 py-2 px-5 rounded hover:bg-white hover:text-indigo-700   text-white bg-indigo-700">
+                <div class= "w-3/4 sm:w-1/3 py-2 px-5 rounded hover:bg-white hover:text-indigo-700   text-white bg-indigo-700">
                     <?= $version['version'] ?>
                     <details >
                         <p class="my-4"> date de sortie :  <?= $version['release_date'] ?>  </p>
