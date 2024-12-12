@@ -37,7 +37,7 @@
                                 <input type="hidden" name="_method" value="modifie">
                                  <button type="submit"  class="hover:underline font-semibold text-green-800  ">modifier </button>
                             </form>
-                            <form action="#" method="post"> 
+                            <form action="" method="post"> 
                                 <input type="hidden" name="id" value="<?= $package['id']?>">
                                 <input type="hidden" name="_method" value="supprime">
                                 <button type="submit"  class="hover:underline font-semibold text-rose-800  ">supprimer </button>

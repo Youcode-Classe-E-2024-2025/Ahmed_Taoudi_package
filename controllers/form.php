@@ -20,7 +20,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
         $method = "submit_ajoute";
        $newPackage = ajoutePackage($_POST);
-
+       header("Location: /packages");
+       exit();
     }else if($_POST['_method'] === 'submit_modifie'){
 
         dd($_POST);
