@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Package (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT, 
-    repository_url VARCHAR(255) 
+    repository_url VARCHAR(255) UNIQUE NOT NULL 
 );
 
 -- Table pour les Versions
