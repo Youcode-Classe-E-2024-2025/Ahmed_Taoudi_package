@@ -9,53 +9,51 @@
 </head>
 
 <body class="bg-blue-200">
-    <div class=" ">
+    <div  class="h-screen flex flex-col justify-start">
 
-        <?php require('./views/partials/navbar.php') ?>
+        <?php require('views/partials/navbar.php') ?>
 
-        <main class="grid grid-cols-12 h-screen ">
-            <aside class="col-start-1 col-end-3 bg-indigo-900 text-blue-950">
-                <div class="p-4 flex  flex-col gap-4">
-                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=auteur">auteurs</a>
-                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php?type=packages">packages</a>
-                    <a class=" px-6 py-1 bg-blue-50 rounded hover:scale-105 hover:bg-blue-300 transition" href="/packages.php">...</a>
-                </div>
-            </aside>
-            <div class="col-start-3 -col-end-1">
+        <main >
+            
+            <div class="max-w-7xl py-4 px-6 md:px-40 mx-auto">
                 <!-- packages -->
                  <section id="packages">
-                    <h2 class="text-blue-900 text-3xl py-10 px-4 font-semibold">les packages </h2>
+                    <div class="py-10 px-4 flex justify-between ">
+                    <h2 class="text-blue-900 text-3xl font-semibold">les packages </h2>
+                    <form action="/admin" method="POST">
+                        <input type="hidden" name="_method" value="ajoute">
+                        <button  class="px-4 py-1 transition-all rounded border-2 border-indigo-200 bg-indigo-600 text-indigo-100 hover:bg-white hover:text-indigo-600 hover:border-indigo-600 font-bold text-xl " type="submit">ajoute </button>
+                    </form>
+                    </div>
+                    
                     <div class="flex flex-col gap-4 mx-4">
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
+                        <?php foreach($packages as $package) :?>
+                            
+                        <div class="bg-white px-6 py-4 rounded flex justify-between ">
+                            <a href="/package?id=<?= $package['id']?>" class="hover:underline font-semibold text-indigo-800 "><?=$package['name']?></a>
+                            <div class="flex gap-4">
+                            <form action="/admin" method="post">
+                                <input type="hidden" name="id" value="<?= $package['id']?>">
+                                <input type="hidden" name="_method" value="modifie">
+                                 <button type="submit"  class="hover:underline font-semibold text-green-800  ">modifier </button>
+                            </form>
+                            <form action="#" method="post"> 
+                                <input type="hidden" name="id" value="<?= $package['id']?>">
+                                <input type="hidden" name="_method" value="supprime">
+                                <button type="submit"  class="hover:underline font-semibold text-rose-800  ">supprimer </button>
+                            </form>
+                           
+                            <!-- <a href="/package?id=<?= $package['id']?>" class="hover:underline font-semibold text-rose-800  ">supprimer</a> -->
+                            </div>
+                            
                         </div>
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
-                        </div>
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
-                        </div>
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
-                        </div>
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
-                        </div>
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
-                        </div>
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
-                        </div>
-                        <div class="bg-white px-6 py-4 rounded ">
-                            <h3>package aazzee</h3>
-                        </div>
+                        <?php endforeach ;?>
                     </div>
                  </section>
             </div>
 
         </main>
-        <footer></footer>
+        <?php require('views/partials/footer.php');?>
     </div>
 </body>
 
