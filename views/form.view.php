@@ -43,11 +43,11 @@
                         class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="framework for node.js ..."><?php if( $method === "modifie" && isset($pckg)){echo $pckg['description'] ;}else{echo "";}  ?></textarea>
                 </div>
-                <div class="mt-4 text-gray-600">Authors :</div>
-                <div class=" mt-4" id="authorZone">
+                <div <?php if( $method === "modifie"){echo 'style="display : none;"';} ?> class="mt-4 text-gray-600">Authors :</div>
+                <div <?php if( $method === "modifie"){echo 'style="display : none;"';} ?> class=" mt-4" id="authorZone">
 
                 </div>
-                <div class=" mt-4">
+                <div  class=" mt-4" <?php if( $method === "modifie"){echo 'style="display : none;"';} ?> >
                 <input type="hidden" id="select_cmp" name="select_cmp"  >
                 <input type="hidden" id="cmp" name="cmp"  >
                     
@@ -57,11 +57,11 @@
                    <button type="button" id="selectAuthorBtn" 
                         class="bg-indigo-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400">select Author</button>
                 </div>
-                <div class="mt-4 text-gray-600">Versions :</div>
-                <div class=" mt-4" id="versionZone">
+                <div <?php if( $method === "modifie"){echo 'style="display : none;"';} ?> class="mt-4 text-gray-600">Versions :</div>
+                <div <?php if( $method === "modifie"){echo 'style="display : none;"';} ?> class=" mt-4" id="versionZone">
 
                 </div>
-                <div class=" mt-4">
+                <div class=" mt-4" <?php if( $method === "modifie"){echo 'style="display : none;"';} ?> >
                     <input type="hidden" id="cmpV" name="cmpV">
                     <button type="button" id="addVersionBtn" 
                         class="bg-indigo-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400"> + Version</button>
