@@ -33,16 +33,19 @@
                   </div>
               </form>
             </div>
+            <div>
+                <h1 class="text-4xl  text-indigo-800 p-10 text-center font-semibold">Simplifiez la gestion de vos packages &smile;</h1>
+            </div>
 
                 <!-- statistique -->
                 <section id="statistique" class="flex justify-around p-10">
                     <div class="bg-blue-50 w-2/5 rounded-xl text-center p-4">
-                        <h3> nombre des Authors</h3>
-                        <span><?= $Author_count?></span>
+                        <h3 class="text-xl text-indigo-600  font-semibold"> nombre des Authors</h3>
+                        <span class="font-bold  text-indigo-800 text-2xl "><?= $Author_count?></span>
                     </div>
                     <div class="bg-blue-50 w-2/5 rounded-xl text-center p-4">
-                        <h3> nombre des packages</h3>
-                        <span><?= $Package_count ?></span>
+                        <h3 class="text-xl  text-indigo-600 font-semibold"> nombre des packages</h3>
+                        <span class="font-bold text-2xl  text-indigo-800 "><?= $Package_count ?></span>
                     </div>
                     
 
