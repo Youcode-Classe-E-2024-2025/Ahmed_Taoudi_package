@@ -20,9 +20,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     }else if($_POST['_method'] === 'submit_ajoute'){
         // dd($_POST);
 
-        $method = "submit_ajoute";
-       $newPackage = ajoutePackage($_POST);
-       header("Location: /packages");
+       $method = "submit_ajoute";
+    //    $newPackageId = ajoutePackage($_POST);
+       $newPackage = ajouteAuthors($_POST,20);
+       header("Location: /package?id=$newPackageId");
        exit();
     }else if($_POST['_method'] === 'submit_modifie'){
 
@@ -47,7 +48,7 @@ function ajoutePackage($post){
     $description =$post['description'];
     $repository_url =$post['repository_url'];
     execute_sql(" insert into Package (name, description, repository_url) values ('$name','$description','$repository_url')");
-    $pk_id = fetch("select * from Package where repository_url = '$repository_url' ") ;
+    $pk_id = fetch("select id from Package where repository_url = '$repository_url' ") ;
     // dd($pk_id);
     return $pk_id;
 }
@@ -57,5 +58,12 @@ function modifieInfoPackage($post){
     $description =$post['description'];
     $repository_url =$post['repository_url'];
     execute_sql("update Package set name = '$name' ,description = '$description' , repository_url = '$repository_url'  where id = $pid ");
+}
+
+function ajouteAuthors($post,$PackageId){
+    // dd($PackageId);
+    dd($post);
+    $cmp = $post['cmp'] ;
+
 }
 // dd($packages);
