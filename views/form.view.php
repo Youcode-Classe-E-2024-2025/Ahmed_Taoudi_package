@@ -102,13 +102,13 @@ document.getElementById('cmp').value=cmp;
         const div = document.createElement('div');
         div.innerHTML=`
          <p>author ${cmp + select_cmp}</p>
-       <input type="text" id="name${cmp + select_cmp}" name="name${cmp + select_cmp}" required
+       <input type="text" id="name${cmp}" name="name${cmp}" required
                         class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="nom d'author">
-                        <input type="text" id="biograph${cmp + select_cmp}" name="biograph${cmp + select_cmp}" required
+                        <input type="text" id="biograph${cmp}" name="biograph${cmp}" required
                         class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="biography">
-                        <input type="email" id="email${cmp + select_cmp}" name="email${cmp + select_cmp}" required
+                        <input type="email" id="email${cmp}" name="email${cmp}" required
                         class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="email">
         `;
