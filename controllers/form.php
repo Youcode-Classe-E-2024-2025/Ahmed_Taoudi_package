@@ -12,7 +12,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     } else if ($_POST['_method'] === 'modifie') {
         
-        // dd($_POST['_method']);
+        $pk_id = $_POST['id'];
+        $pckg = fetch("select * from Package where id = $pk_id ") ;
+        // dd($pckg);
         $method = "modifie";
 
     }else if($_POST['_method'] === 'submit_ajoute'){
@@ -24,8 +26,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
        exit();
     }else if($_POST['_method'] === 'submit_modifie'){
 
-        dd($_POST);
-
+        // dd($_POST);
+        modifieInfoPackage($_POST);
+        header("Location: /packages");
+        exit();
     }else{
     require('views/404.php');
 die();
@@ -46,5 +50,12 @@ function ajoutePackage($post){
     $pk_id = fetch("select * from Package where repository_url = '$repository_url' ") ;
     // dd($pk_id);
     return $pk_id;
+}
+function modifieInfoPackage($post){
+    $pid =$post['id'];
+    $name =$post['name'];
+    $description =$post['description'];
+    $repository_url =$post['repository_url'];
+    execute_sql("update Package set name = '$name' ,description = '$description' , repository_url = '$repository_url'  where id = $pid ");
 }
 // dd($packages);

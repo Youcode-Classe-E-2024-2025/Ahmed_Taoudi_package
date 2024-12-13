@@ -18,23 +18,30 @@
         <div class="m-auto bg-white shadow-lg rounded-lg   max-w-lg w-full p-6">
             <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6"><?=$method?> package</h2>
             <form method="post" id="form-add" action="#">
+            <?php if( $method === "modifie" && isset($pckg)):?>
+                <input type="hidden" name="id" value="<?= $pckg['id'] ?>">
+                <?php endif;?>
                 <input type="hidden" name="_method" value="submit_<?= $method ?>">
                 <div class="mb-2">
                     <label for="name" class="block text-gray-600">Nom de package</label>
                     <input type="text" id="name" name="name" required
+                 value="<?php if( $method === "modifie" && isset($pckg)){echo $pckg['name'] ;}else{echo "";}  ?>"
                         class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         placeholder="express js">
                 </div>
                 <div class="mb-2">
                     <label for="repository_url" class="block text-gray-600">repository url</label>
                     <input type="url" id="repository_url" name="repository_url" required
+                 value="<?php if( $method === "modifie" && isset($pckg)){echo $pckg['repository_url'] ;}else{echo "";}  ?>"
+
                         class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="https://github.com/versionhub/example">
                 </div>
                 <div class="mb-2">
                     <label for="description" class="block text-gray-600">Description</label>
                     <textarea type="text" id="description" name="description" required
+
                         class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        placeholder="framework for node.js ..."></textarea>
+                        placeholder="framework for node.js ..."><?php if( $method === "modifie" && isset($pckg)){echo $pckg['description'] ;}else{echo "";}  ?></textarea>
                 </div>
                
                
@@ -60,7 +67,6 @@
                 </div>
             </form>
         </div>
-
     </section>
         </main>
         <footer></footer>
