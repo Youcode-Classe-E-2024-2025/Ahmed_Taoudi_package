@@ -50,6 +50,7 @@
                 <!-- packages -->
                  <section id="packages">
                     <form action="/admin" method="POST">
+                    <input type="hidden" name="_method" value="ajoute">
                         <button  class="px-4 py-1 transition-all rounded border-2 border-indigo-200 bg-indigo-600 text-indigo-100 hover:bg-white hover:text-indigo-600 hover:border-indigo-600 font-bold text-xl " type="submit">ajoute </button>
                     </form>
                     <h2 class="text-blue-900  py-10 px-4 font-semibold">les packages </h2>
