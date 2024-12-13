@@ -92,6 +92,7 @@ function ajouteAuthorsVersions($post,$PackageId){
     // echo "<br>version ajoute<br>";
 
     for($i=1;$i<=$cmpVersionAjoute;$i++){
+        ajouteVersionPackage($PackageId,$post["version$i"],$post["release_date$i"],$post["changelog$i"]);
         // $ajouteAuthor();
         // echo "<br>";
         // var_dump($post["version$i"]);
@@ -99,7 +100,7 @@ function ajouteAuthorsVersions($post,$PackageId){
 
     };
     // die();
-    // dd($cmpAuthorSelected);
+    // dd($cmpAuthorSelected); 
 }
 function ajouteAuthor($AuthorName,$AuthorEmail,$AuthorBio){
     // dd($post);
@@ -110,6 +111,9 @@ function ajouteAuthor($AuthorName,$AuthorEmail,$AuthorBio){
 }
 function packageByAuthor($pk_id,$au_id){
     execute_sql(" insert into package_author (package_id, author_id) values ( $pk_id , $au_id ) ");
+}
+function ajouteVersionPackage($pk_id,$vr,$rdate,$change){
+    execute_sql(" insert into `Version` (package_id, version,release_date,changelog) values ( $pk_id ,  '$vr' , '$rdate' ,'$change' ) ");
 }
 // dd($packages);
 
